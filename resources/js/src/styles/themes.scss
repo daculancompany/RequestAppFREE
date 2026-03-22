@@ -1,0 +1,509 @@
+// ============================================
+// GLOBAL THEME VARIABLES
+// ============================================
+
+:root[data-theme="light"] {
+    // Light Theme - Base Variables
+    --bg-primary: #f8fafc;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f5f9;
+    --bg-elevated: #ffffff;
+
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --text-tertiary: #94a3b8;
+
+    --border-color: #e2e8f0;
+    --border-hover: #cbd5e1;
+
+    --sidebar-width: 280px;
+    --header-height: 70px;
+
+    --card-radius: 12px;
+    --input-radius: 8px;
+    --btn-radius: 6px;
+    --tag-radius: 4px;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+
+    // Color Palette
+    --primary-color: #3b82f6;
+    --primary-hover: #2563eb;
+    --primary-light: #dbeafe;
+    --primary-dark: #1d4ed8;
+
+    --success-color: #10b981;
+    --success-hover: #059669;
+    --success-light: #d1fae5;
+
+    --warning-color: #f59e0b;
+    --warning-hover: #d97706;
+    --warning-light: #fef3c7;
+
+    --error-color: #ef4444;
+    --error-hover: #dc2626;
+    --error-light: #fee2e2;
+
+    --info-color: #0ea5e9;
+    --info-hover: #0284c7;
+    --info-light: #e0f2fe;
+
+    // Interactive States
+    --hover-bg: #f1f5f9;
+    --active-bg: #e2e8f0;
+    --selected-bg: #eff6ff;
+
+    // Component Specific - Request Modal
+    --modal-bg: var(--bg-secondary);
+    --modal-header-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --modal-header-border: rgba(255, 255, 255, 0.1);
+    --modal-border: var(--border-color);
+    --modal-actions-border: var(--border-color);
+
+    --card-bg: var(--bg-secondary);
+    --card-alt-bg: var(--bg-tertiary);
+    --card-selected-bg: rgba(59, 130, 246, 0.05);
+    --card-header-bg: var(--bg-tertiary);
+    --card-border: var(--border-color);
+    --card-hover-border: var(--primary-color);
+
+    --review-card-bg: var(--bg-secondary);
+    --review-card-border: var(--border-color);
+
+    --employee-section-bg: var(--bg-tertiary);
+    --employee-section-border: var(--border-color);
+
+    --signature-bg: var(--bg-tertiary);
+    --upload-area-bg: var(--bg-tertiary);
+    --upload-area-hover-bg: rgba(59, 130, 246, 0.05);
+
+    --info-bg: var(--primary-light);
+    --info-border: #93c5fd;
+
+    // Text Colors - Request Modal
+    --modal-header-text: #ffffff;
+    --modal-title-color: #ffffff;
+    --modal-subtitle-color: rgba(255, 255, 255, 0.8);
+    --modal-icon-color: #ffffff;
+    --modal-close-color: #ffffff;
+    --modal-close-hover: rgba(255, 255, 255, 0.8);
+
+    --section-title-color: var(--text-primary);
+    --label-color: var(--text-secondary);
+    --card-title-color: var(--text-primary);
+    --card-text-color: var(--text-primary);
+    --employee-name-color: var(--text-primary);
+    --employee-details-color: var(--text-secondary);
+
+    --type-icon-color: var(--primary-color);
+
+    // Form Elements
+    --input-bg: var(--bg-secondary);
+    --input-border: var(--border-color);
+    --input-hover-border: var(--primary-color);
+    --input-text: var(--text-primary);
+    --input-focus-shadow: rgba(59, 130, 246, 0.2);
+
+    --form-label-color: var(--text-secondary);
+    --form-error-color: var(--error-color);
+
+    // Descriptions
+    --descriptions-label-bg: var(--bg-tertiary);
+
+    // Buttons
+    --btn-default-bg: var(--bg-secondary);
+    --btn-default-border: var(--border-color);
+    --btn-default-text: var(--text-primary);
+    --btn-default-hover-bg: var(--hover-bg);
+    --btn-default-hover-border: var(--primary-hover);
+    --btn-default-hover-text: var(--primary-hover);
+
+    --btn-dashed-border: var(--border-color);
+    --btn-dashed-text: var(--text-primary);
+
+    --link-color: var(--primary-color);
+    --link-hover: var(--primary-hover);
+
+    // Tags
+    --tag-bg: var(--primary-light);
+    --tag-text: var(--primary-dark);
+    --tag-border: var(--primary-color);
+
+    --tag-blue-bg: var(--primary-light);
+    --tag-blue-border: #93c5fd;
+    --tag-blue-text: #1e40af;
+
+    --tag-green-bg: var(--success-light);
+    --tag-green-border: #86efac;
+    --tag-green-text: #065f46;
+
+    --tag-red-bg: var(--error-light);
+    --tag-red-border: #fca5a5;
+    --tag-red-text: #7f1d1d;
+
+    --tag-gold-bg: var(--warning-light);
+    --tag-gold-border: #fde68a;
+    --tag-gold-text: #92400e;
+
+    // Badges
+    --badge-bg: var(--bg-secondary);
+    --badge-text: var(--text-primary);
+    --badge-border: var(--border-color);
+
+    // Avatar
+    --avatar-bg: var(--bg-tertiary);
+    --avatar-border: var(--border-color);
+
+    // Steps
+    --steps-icon-bg: var(--bg-secondary);
+    --steps-icon-border: var(--border-color);
+    --steps-icon-color: var(--text-secondary);
+    --steps-wait-bg: var(--bg-tertiary);
+    --steps-finish-bg: var(--bg-secondary);
+    --steps-finish-border: var(--success-color);
+    --steps-finish-color: var(--success-color);
+    --steps-title-color: var(--text-primary);
+    --steps-description-color: var(--text-secondary);
+    --steps-active-title-color: var(--text-primary);
+
+    // Timeline
+    --timeline-dot-bg: var(--bg-secondary);
+    --timeline-dot-border: var(--border-color);
+    --timeline-content-color: var(--text-primary);
+    --timeline-label-color: var(--text-secondary);
+
+    // Shadows
+    --card-hover-shadow: var(--shadow-md);
+    --card-selected-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+
+    // Transitions
+    --transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: 150ms;
+    --transition-normal: 300ms;
+    --transition-slow: 500ms;
+
+    // Typography
+    --font-family:
+        -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+        Arial, sans-serif;
+    --font-size-xs: 12px;
+    --font-size-sm: 14px;
+    --font-size-md: 16px;
+    --font-size-lg: 18px;
+    --font-size-xl: 20px;
+    --font-size-2xl: 24px;
+
+    // Spacing
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+
+    // Z-indices
+    --z-dropdown: 1000;
+    --z-sticky: 1020;
+    --z-fixed: 1030;
+    --z-modal-backdrop: 1040;
+    --z-modal: 1050;
+    --z-popover: 1060;
+    --z-tooltip: 1070;
+
+     // Message Component - Mobile Positioning
+    --message-top-desktop: 24px;
+    --message-bottom-mobile: 20px;
+    --message-mobile-breakpoint: 768px;
+    --message-content-shadow: var(--shadow-lg);
+    --message-content-radius: var(--card-radius);
+    --message-content-bg: var(--bg-elevated);
+    --message-content-text: var(--text-primary);
+    
+    // Message Types
+    --message-success-bg: var(--success-light);
+    --message-success-border: var(--success-color);
+    --message-success-text: var(--text-primary);
+    --message-success-icon: var(--success-color);
+    
+    --message-error-bg: var(--error-light);
+    --message-error-border: var(--error-color);
+    --message-error-text: var(--text-primary);
+    --message-error-icon: var(--error-color);
+    
+    --message-warning-bg: var(--warning-light);
+    --message-warning-border: var(--warning-color);
+    --message-warning-text: var(--text-primary);
+    --message-warning-icon: var(--warning-color);
+    
+    --message-info-bg: var(--info-light);
+    --message-info-border: var(--info-color);
+    --message-info-text: var(--text-primary);
+    --message-info-icon: var(--info-color);
+    
+    --message-loading-bg: var(--bg-elevated);
+    --message-loading-border: var(--border-color);
+    --message-loading-text: var(--text-primary);
+    --message-loading-icon: var(--primary-color);
+}
+
+:root[data-theme="dark"] {
+    // Dark Theme - Base Variables
+    --bg-primary: #0f172a;
+    --bg-secondary: #1e293b;
+    --bg-tertiary: #334155;
+    --bg-elevated: #1e293b;
+
+    --text-primary: #f1f5f9;
+    --text-secondary: #cbd5e1;
+    --text-tertiary: #94a3b8;
+
+    --border-color: #475569;
+    --border-hover: #64748b;
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+
+    // Color Palette
+    --primary-color: #60a5fa;
+    --primary-hover: #93c5fd;
+    --primary-light: rgba(96, 165, 250, 0.15);
+    --primary-dark: #3b82f6;
+
+    --success-color: #34d399;
+    --success-hover: #6ee7b7;
+    --success-light: rgba(52, 211, 153, 0.15);
+
+    --warning-color: #fbbf24;
+    --warning-hover: #fcd34d;
+    --warning-light: rgba(251, 191, 36, 0.15);
+
+    --error-color: #f87171;
+    --error-hover: #fca5a5;
+    --error-light: rgba(248, 113, 113, 0.15);
+
+    --info-color: #38bdf8;
+    --info-hover: #7dd3fc;
+    --info-light: rgba(56, 189, 248, 0.15);
+
+    // Interactive States
+    --hover-bg: #334155;
+    --active-bg: #475569;
+    --selected-bg: rgba(96, 165, 250, 0.15);
+
+    // Component Specific - Request Modal
+    --modal-bg: var(--bg-secondary);
+    --modal-header-gradient: linear-gradient(135deg, #2d3748 0%, #4a5568 100%);
+    --modal-border: var(--border-color);
+    --modal-actions-border: var(--border-color);
+
+    --card-bg: var(--bg-secondary);
+    --card-alt-bg: var(--bg-tertiary);
+    --card-selected-bg: rgba(96, 165, 250, 0.15);
+    --card-header-bg: var(--bg-tertiary);
+    --card-border: var(--border-color);
+    --card-hover-border: var(--primary-color);
+
+    --review-card-bg: var(--bg-secondary);
+    --review-card-border: var(--border-color);
+
+    --employee-section-bg: var(--bg-tertiary);
+    --employee-section-border: var(--border-color);
+
+    --signature-bg: var(--bg-tertiary);
+    --upload-area-bg: var(--bg-tertiary);
+    --upload-area-hover-bg: rgba(96, 165, 250, 0.1);
+
+    --info-bg: rgba(96, 165, 250, 0.1);
+    --info-border: var(--primary-color);
+
+    // Text Colors - Request Modal
+    --modal-header-text: #ffffff;
+    --modal-title-color: #ffffff;
+    --modal-subtitle-color: rgba(255, 255, 255, 0.8);
+    --modal-icon-color: #ffffff;
+    --modal-close-color: #ffffff;
+    --modal-close-hover: rgba(255, 255, 255, 0.8);
+
+    --section-title-color: var(--text-primary);
+    --label-color: var(--text-secondary);
+    --card-title-color: var(--text-primary);
+    --card-text-color: var(--text-primary);
+    --employee-name-color: var(--text-primary);
+    --employee-details-color: var(--text-secondary);
+
+    --type-icon-color: var(--primary-color);
+
+    // Form Elements
+    --input-bg: var(--bg-tertiary);
+    --input-border: var(--border-color);
+    --input-hover-border: var(--primary-color);
+    --input-text: var(--text-primary);
+    --input-focus-shadow: rgba(96, 165, 250, 0.2);
+
+    --form-label-color: var(--text-secondary);
+    --form-error-color: var(--error-color);
+
+    // Descriptions
+    --descriptions-label-bg: var(--bg-tertiary);
+
+    // Buttons
+    --btn-default-bg: var(--bg-tertiary);
+    --btn-default-border: var(--border-color);
+    --btn-default-text: var(--text-primary);
+    --btn-default-hover-bg: var(--hover-bg);
+    --btn-default-hover-border: var(--primary-hover);
+    --btn-default-hover-text: var(--primary-hover);
+
+    --btn-dashed-border: var(--border-color);
+    --btn-dashed-text: var(--text-primary);
+
+    --link-color: var(--primary-color);
+    --link-hover: var(--primary-hover);
+
+    // Tags
+    --tag-bg: rgba(96, 165, 250, 0.2);
+    --tag-text: var(--primary-hover);
+    --tag-border: var(--primary-color);
+
+    --tag-blue-bg: rgba(96, 165, 250, 0.2);
+    --tag-blue-border: var(--primary-color);
+    --tag-blue-text: var(--primary-hover);
+
+    --tag-green-bg: rgba(52, 211, 153, 0.2);
+    --tag-green-border: var(--success-color);
+    --tag-green-text: var(--success-hover);
+
+    --tag-red-bg: rgba(248, 113, 113, 0.2);
+    --tag-red-border: var(--error-color);
+    --tag-red-text: var(--error-hover);
+
+    --tag-gold-bg: rgba(251, 191, 36, 0.2);
+    --tag-gold-border: var(--warning-color);
+    --tag-gold-text: var(--warning-hover);
+
+    // Badges
+    --badge-bg: var(--bg-tertiary);
+    --badge-text: var(--text-primary);
+    --badge-border: var(--border-color);
+
+    // Avatar
+    --avatar-bg: var(--bg-tertiary);
+    --avatar-border: var(--border-color);
+
+    // Steps
+    --steps-icon-bg: var(--bg-tertiary);
+    --steps-icon-border: var(--border-color);
+    --steps-icon-color: var(--text-secondary);
+    --steps-wait-bg: var(--hover-bg);
+    --steps-finish-bg: var(--bg-tertiary);
+    --steps-finish-border: var(--success-color);
+    --steps-finish-color: var(--success-color);
+    --steps-title-color: var(--text-primary);
+    --steps-description-color: var(--text-secondary);
+    --steps-active-title-color: var(--text-primary);
+
+    // Timeline
+    --timeline-dot-bg: var(--bg-tertiary);
+    --timeline-dot-border: var(--border-color);
+    --timeline-content-color: var(--text-primary);
+    --timeline-label-color: var(--text-secondary);
+
+    // Shadows
+    --card-hover-shadow: var(--shadow-md);
+    --card-selected-shadow: 0 4px 12px rgba(96, 165, 250, 0.3);
+
+    --ant-color-split: rgb(109 109 109 / 50%) !important;
+
+     // Message Component - Mobile Positioning
+    --message-top-desktop: 24px;
+    --message-bottom-mobile: 20px;
+    --message-mobile-breakpoint: 768px;
+    --message-content-shadow: var(--shadow-lg);
+    --message-content-radius: var(--card-radius);
+    --message-content-bg: var(--bg-elevated);
+    --message-content-text: var(--text-primary);
+    
+    // Message Types
+    --message-success-bg: rgba(52, 211, 153, 0.15);
+    --message-success-border: var(--success-color);
+    --message-success-text: var(--text-primary);
+    --message-success-icon: var(--success-color);
+    
+    --message-error-bg: rgba(248, 113, 113, 0.15);
+    --message-error-border: var(--error-color);
+    --message-error-text: var(--text-primary);
+    --message-error-icon: var(--error-color);
+    
+    --message-warning-bg: rgba(251, 191, 36, 0.15);
+    --message-warning-border: var(--warning-color);
+    --message-warning-text: var(--text-primary);
+    --message-warning-icon: var(--warning-color);
+    
+    --message-info-bg: rgba(56, 189, 248, 0.15);
+    --message-info-border: var(--info-color);
+    --message-info-text: var(--text-primary);
+    --message-info-icon: var(--info-color);
+    
+    --message-loading-bg: var(--bg-elevated);
+    --message-loading-border: var(--border-color);
+    --message-loading-text: var(--text-primary);
+    --message-loading-icon: var(--primary-color);
+}
+
+// ============================================
+// HIGH CONTRAST THEME
+// ============================================
+:root[data-theme="high-contrast"] {
+    // Enhanced contrast ratios for accessibility
+    --bg-primary: #ffffff;
+    --bg-secondary: #f0f0f0;
+    --bg-tertiary: #e0e0e0;
+    --bg-elevated: #ffffff;
+
+    --text-primary: #000000;
+    --text-secondary: #333333;
+    --text-tertiary: #666666;
+
+    --border-color: #000000;
+    --border-hover: #000000;
+
+    --primary-color: #0066cc;
+    --primary-hover: #0052a3;
+    --primary-light: #e6f2ff;
+
+    --success-color: #007a33;
+    --success-hover: #005c25;
+    --success-light: #e6f4ea;
+
+    --warning-color: #ff9500;
+    --warning-hover: #cc7700;
+    --warning-light: #fff4e6;
+
+    --error-color: #cc0000;
+    --error-hover: #990000;
+    --error-light: #ffe6e6;
+
+    --modal-header-gradient: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
+
+    // Borders are thicker for visibility
+    .ant-input,
+    .ant-select-selector,
+    .ant-picker,
+    .ant-btn {
+        border-width: 2px !important;
+    }
+
+    .request-modal,
+    .approval-modal {
+        .ant-modal-content {
+            border: 2px solid var(--border-color) !important;
+        }
+    }
+}
+
+

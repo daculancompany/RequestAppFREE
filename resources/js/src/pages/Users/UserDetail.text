@@ -1,0 +1,239 @@
+import React from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import {
+  Card,
+  Row,
+  Col,
+  Typography,
+  Avatar,
+  Tag,
+  Space,
+  Button,
+  Descriptions,
+  Tabs,
+  Timeline,
+  Statistic,
+  Divider,
+  Alert,
+  Spin,
+  message
+} from 'antd';
+import {
+  ArrowLeftOutlined,
+  EditOutlined,
+  MailOutlined,
+  PhoneOutlined,
+  CalendarOutlined,
+  TeamOutlined,
+  SafetyOutlined,
+  CheckCircleOutlined,
+  HistoryOutlined,
+  SettingOutlined
+} from '@ant-design/icons';
+import { useUser } from '../../hooks/queries/users.queries';
+import { formatDate } from '../../utils/date';
+
+const { Title, Text } = Typography;
+const { TabPane } = Tabs;
+
+const UserDetail: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
+  const navigate = useNavigate();
+  const userId = parseInt(id || '0');
+  
+  const { data: user, isLoading, isError } = useUser(userId);
+  
+  if (isLoading) {
+    return (
+      <div style={{ textAlign: 'center', padding: 50 }}>
+        <Spin size="large" />
+        <div style={{ marginTop: 16 }}>
+          <Text>Loading user details...</Text>
+        </div>
+      </div>
+    );
+  }
+  
+  if (isError || !user) {
+    return (
+      <Alert
+        message="Error"
+        description="Failed to load user details"
+        type="error"
+        showIcon
+        action={
+          <Button onClick={() => navigate(-1)}>Go Back</Button>
+        }
+      />
+    );
+  }
+  
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'active': return 'green';
+      case 'inactive': return 'orange';
+      case 'suspended': return 'red';
+      default: return 'default';
+    }
+  };
+  
+  const getRoleColor = (role: string) => {
+    switch (role) {
+      case 'admin': return 'purple';
+      case 'manager': return 'blue';
+      case 'user': return 'green';
+      default: return 'default';
+    }
+  };
+  
+  return (
+    <div className="user-detail-page">
+      {/* Back button and actions */}
+      <Card style={{ marginBottom: 24 }}>
+        <Row justify="space-between" align="middle">
+          <Col>
+            <Space>
+              <Button
+                icon={<ArrowLeftOutlined />}
+                onClick={() => navigate(-1)}
+              >
+                Back
+              </Button>
+              <Title level={4} style={{ margin: 0 }}>
+                User Details
+              </Title>
+            </Space>
+          </Col>
+          <Col>
+            <Space>
+              <Button
+                icon={<MailOutlined />}
+                onClick={() => window.location.href = `mailto:${user.email}`}
+              >
+                Send Email
+              </Button>
+              <Button
+                type="primary"
+                icon={<EditOutlined />}
+                onClick={() => navigate(`/users/${user.id}/edit`)}
+              >
+                Edit User
+              </Button>
+            </Space>
+          </Col>
+        </Row>
+      </Card>
+      
+      <Row gutter={[24, 24]}>
+        {/* Left Column - Profile */}
+        <Col xs={24} md={8}>
+          <Card>
+            <Space direction="vertical" align="center" style={{ width: '100%' }}>
+              <Avatar
+                size={120}
+                src={user.avatar || `https://api.dicebear.com/7.x/avataaars/svg?seed=${user.email}`}
+              />
+              <Title level={3}>{user.name}</Title>
+              <Text type="secondary">{user.email}</Text>
+              
+              <Space style={{ marginTop: 16 }}>
+                <Tag color={getRoleColor(user.role)} style={{ textTransform: 'capitalize' }}>
+                  <SafetyOutlined /> {user.role}
+                </Tag>
+                <Tag color={getStatusColor(user.status)} style={{ textTransform: 'capitalize' }}>
+                  <CheckCircleOutlined /> {user.status}
+                </Tag>
+              </Space>
+              
+              <Divider style={{ margin: '24px 0' }} />
+              
+              <Statistic
+                title="Member Since"
+                value={formatDate(user.created_at, 'MMM DD, YYYY')}
+                prefix={<CalendarOutlined />}
+              />
+              
+              {user.last_login_at && (
+                <Statistic
+                  title="Last Login"
+                  value={formatDate(user.last_login_at, 'MMM DD, YYYY HH:mm')}
+                  prefix={<HistoryOutlined />}
+                  style={{ marginTop: 16 }}
+                />
+              )}
+            </Space>
+          </Card>
+        </Col>
+        
+        {/* Right Column - Details */}
+        <Col xs={24} md={16}>
+          <Tabs defaultActiveKey="1">
+            <TabPane tab="Profile Information" key="1">
+              <Card>
+                <Descriptions title="User Details" column={2} bordered>
+                  <Descriptions.Item label="Full Name">
+                    {user.name}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Email">
+                    {user.email}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Role">
+                    <Tag color={getRoleColor(user.role)}>{user.role}</Tag>
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Status">
+                    <Tag color={getStatusColor(user.status)}>{user.status}</Tag>
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Account Created">
+                    {formatDate(user.created_at)}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Last Updated">
+                    {formatDate(user.updated_at)}
+                  </Descriptions.Item>
+                  <Descriptions.Item label="Last Login" span={2}>
+                    {user.last_login_at ? formatDate(user.last_login_at) : 'Never logged in'}
+                  </Descriptions.Item>
+                </Descriptions>
+              </Card>
+            </TabPane>
+            
+            <TabPane tab="Activity" key="2">
+              <Card>
+                <Timeline>
+                  <Timeline.Item color="green">
+                    <p>Account created</p>
+                    <Text type="secondary">{formatDate(user.created_at)}</Text>
+                  </Timeline.Item>
+                  {user.last_login_at && (
+                    <Timeline.Item color="blue">
+                      <p>Last login</p>
+                      <Text type="secondary">{formatDate(user.last_login_at)}</Text>
+                    </Timeline.Item>
+                  )}
+                  <Timeline.Item color="gray">
+                    <p>Profile updated</p>
+                    <Text type="secondary">{formatDate(user.updated_at)}</Text>
+                  </Timeline.Item>
+                </Timeline>
+              </Card>
+            </TabPane>
+            
+            <TabPane tab="Settings" key="3">
+              <Card>
+                <Alert
+                  message="User Settings"
+                  description="Manage user-specific settings and permissions"
+                  type="info"
+                  showIcon
+                  style={{ marginBottom: 24 }}
+                />
+                <Text>User settings functionality coming soon...</Text>
+              </Card>
+            </TabPane>
+          </Tabs>
+        </Col>
+      </Row>
+    </div>
+  );
+};
+
+export default UserDetail;

@@ -1,0 +1,144 @@
+/* GroupDetailsModal.css */
+/* Fix modal header */
+.ant-modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border-bottom: none !important;
+  padding: 16px 24px !important;
+}
+
+.ant-modal-header .ant-modal-title {
+  color: white !important;
+  font-size: 16px !important;
+}
+
+.ant-modal-close {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.ant-modal-close:hover {
+  color: white !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Modal content */
+.group-details-modal .ant-modal-content {
+  border-radius: 12px !important;
+  overflow: hidden !important;
+}
+
+.group-details-modal .ant-modal-body {
+  padding: 0 !important;
+  max-height: calc(100vh - 200px) !important;
+  overflow-y: auto !important;
+}
+
+/* Tabs styling */
+.ant-tabs-nav {
+  margin-bottom: 24px !important;
+  background: var(--bg-secondary) !important;
+  padding: 0 24px !important;
+  border-radius: 8px !important;
+}
+
+.ant-tabs-tab {
+  padding: 16px 24px !important;
+  font-weight: 500 !important;
+}
+
+.ant-tabs-tab:hover {
+  color: var(--primary-color) !important;
+}
+
+.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--primary-color) !important;
+  font-weight: 600 !important;
+}
+
+.ant-tabs-ink-bar {
+  height: 3px !important;
+  background: var(--primary-color) !important;
+}
+
+/* Card styling */
+.ant-card {
+  border-radius: 8px !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.ant-card:hover {
+  border-color: var(--primary-color) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Table styling */
+.ant-table {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+.ant-table-thead > tr > th {
+  background: var(--bg-secondary) !important;
+  font-weight: 600 !important;
+  border-bottom: 2px solid var(--border-color) !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: var(--hover-bg) !important;
+}
+
+/* Button styling */
+.ant-btn-primary {
+  background: var(--primary-color) !important;
+  border-color: var(--primary-color) !important;
+}
+
+.ant-btn-primary:hover {
+  opacity: 0.9 !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Avatar styling */
+.ant-avatar {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  font-weight: bold !important;
+}
+
+/* Tag styling */
+.ant-tag {
+  border-radius: 4px !important;
+  font-weight: 500 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 4px !important;
+}
+
+/* Statistics cards */
+.stat-card .ant-statistic-title {
+  color: var(--text-secondary) !important;
+  font-size: 12px !important;
+  text-transform: uppercase !important;
+}
+
+.stat-card .ant-statistic-content {
+  color: var(--text-primary) !important;
+  font-weight: 600 !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .group-details-modal {
+    width: 95% !important;
+    top: 10px !important;
+  }
+  .ant-modal-body {
+    max-height: calc(100vh - 100px) !important;
+  }
+  .ant-tabs-nav {
+    padding: 0 12px !important;
+  }
+  .ant-tabs-tab {
+    padding: 12px 16px !important;
+  }
+}/*# sourceMappingURL=GroupDetails.css.map */
